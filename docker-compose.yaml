@@ -3,6 +3,5 @@ version: "3"
 services:
   telegram_weather_bot:
     build: .
-    restart: always
     environment:
       - TZ=Europe/Moscow
