@@ -1,4 +1,4 @@
-name: Go
+name: Tests in main_test.go
 on: [push]
 
 jobs:
