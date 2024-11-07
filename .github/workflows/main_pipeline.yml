@@ -1,4 +1,4 @@
-name: Tests in main_test.go
+name: Main Pipeline
 on:
   push:
     branches:
