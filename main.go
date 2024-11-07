@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
+	"github.com/joho/godotenv"
 	"io/ioutil"
 	"log"
 	"math"
@@ -19,21 +20,17 @@ type Config struct {
 }
 
 func main() {
-	file, err := os.Open("configs/config.json")
+	configErr := godotenv.Load("configs/config.env")
 
-	defer file.Close()
-
-	decoder := json.NewDecoder(file)
-	configuration := Config{}
-	err = decoder.Decode(&configuration)
-
-	if err != nil {
-		log.Panic(err)
+	if configErr != nil {
+		log.Fatal("Error loading .env file")
 	}
+
+	telegramBotToken := os.Getenv("TELEGRAM_BOT_TOKEN")
 
 	fmt.Println("Successfully got a configuration!")
 
-	bot, err := tgbotapi.NewBotAPI(configuration.TelegramBotToken)
+	bot, err := tgbotapi.NewBotAPI(telegramBotToken)
 	if err != nil {
 		log.Panic(err)
 	}
