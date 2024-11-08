@@ -54,7 +54,7 @@ jobs:
         with:
           context: .
           platforms: linux/amd64
-          file: ./infrastructure/docker/Dockerfile
+          file: ./Dockerfile
           push: true
           target: prod
           tags: ghcr.io/i4puk/telegram_weather_bot/demo-app:${{ github.sha }}
