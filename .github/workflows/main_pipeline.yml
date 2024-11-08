@@ -57,7 +57,7 @@ jobs:
           file: ./infrastructure/docker/Dockerfile
           push: true
           target: prod
-          tags: ghcr.io/${{ github.repository }}/demo-app:${{ github.sha }}
+          tags: ghcr.io/i4puk/telegram_weather_bot/demo-app:${{ github.sha }}
 
   deploy:
     needs: [build]
